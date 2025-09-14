@@ -1,0 +1,80 @@
+Product Requirements Document (PRD)
+Project: Serragates Impact Token Sale dApp
+
+1. Overview
+The Serragates Impact Token Sale dApp is a decentralized web application that enables users to purchase Impact Tokens (ERC-20) to support verified Sustainable Development Goals (SDG) projects. The platform leverages blockchain transparency, MetaMask wallet integration, and operates on the Ethereum Sepolia testnet for secure and verifiable transactions.
+
+2. Goals
+- Enable users to securely purchase Impact Tokens using ETH.
+- Provide real-time sale statistics and user balances.
+- Ensure seamless wallet connection and transaction experience.
+- Support SDG projects through transparent token sales.
+- Deliver a modern, responsive, and user-friendly interface.
+
+3. Functional Requirements
+3.1 Token Sale
+- Display current token price, tokens left, tokens sold, and sale progress.
+- Allow users to input ETH amount and calculate corresponding token amount.
+- Validate minimum and maximum contribution limits.
+- Initiate token purchase transactions via MetaMask.
+- Show transaction status (pending, success, error).
+
+3.2 Wallet Integration
+- Detect MetaMask installation and prompt user to connect.
+- Authenticate user via MetaMask wallet.
+- Display connected wallet address and network status.
+- Validate user is on the Sepolia testnet; prompt to switch if not.
+
+3.3 User Dashboard
+- Show user’s Impact Token balance.
+- Display transaction history (purchases, transfers).
+- Provide feedback on transaction outcomes.
+
+3.4 Sale Data & Contracts
+- Fetch sale data from smart contracts (token price, supply, etc.).
+- Use environment variables for contract addresses and chain ID.
+- Fallback to default addresses if environment variables are missing.
+
+3.5 UI/UX
+- Responsive design for desktop and mobile.
+- Use modern UI components (cards, badges, progress bars, alerts).
+- Error handling and user-friendly messages.
+
+4. Non-Functional Requirements
+- Security: All transactions must be signed by the user’s wallet; no private keys stored.
+- Performance: Real-time updates for sale stats and balances.
+- Reliability: Handle network errors, contract failures, and wallet disconnects gracefully.
+- Scalability: Support for future mainnet deployment and additional SDG tokens.
+- Accessibility: UI must be usable on all major browsers and devices.
+
+5. Technical Stack
+- Frontend: Next.js, React, TypeScript, Tailwind CSS
+- Web3 Integration: Wagmi, viem, MetaMask
+- Smart Contracts: ERC-20 Token, IDO Sale Contract (deployed on Sepolia)
+- Environment Management: .env.local for contract addresses and chain ID
+- Deployment: Vercel, Netlify, or similar platforms
+
+6. Environment Variables
+- NEXT_PUBLIC_TOKEN_ADDRESS: ERC-20 token contract address
+- NEXT_PUBLIC_IDO_ADDRESS: IDO contract address
+- NEXT_PUBLIC_CHAIN_ID: Ethereum chain ID (Sepolia: 11155111)
+
+7. User Flows
+1. Connect Wallet: User opens dApp, connects MetaMask, and switches to Sepolia if needed.
+2. View Sale Stats: User sees token price, supply, and sale progress.
+3. Buy Tokens: User enters ETH amount, confirms transaction in MetaMask, and receives tokens.
+4. View Balance: User checks token balance and transaction history.
+5. Error Handling: User receives clear feedback for any issues (network, contract, wallet).
+
+8. Success Metrics
+- Number of successful token purchases
+- User retention and repeat purchases
+- Transaction completion rate
+- User satisfaction (feedback, support requests)
+
+9. Future Enhancements
+- Mainnet deployment
+- Support for multiple SDG tokens
+- Advanced analytics dashboard
+- Integration with other wallets (WalletConnect, Coinbase Wallet)
+- Localization and multi-language support
